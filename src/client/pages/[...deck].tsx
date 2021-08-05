@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import App from "../components/App";
 import DeckPage from "../components/DeckPage";
-import Jumbotron from "../components/ThemePage/Jumbotron";
+import Footer from "../components/Footer";
 import ThemePage from "../components/ThemePage/ThemePage";
 
 const Decks = () => {
@@ -32,6 +32,7 @@ const Decks = () => {
   return (
     <App>
       {renderTheme ? renderThemePage() : renderDeck ? renderDeckPage() : null}
+      <Footer />
     </App>
   );
 };
