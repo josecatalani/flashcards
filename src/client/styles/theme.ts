@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from './colors';
+import fonts from './fonts';
 
 const styledTheme: { colors: { [key: string]: { [key: string]: string } }; } = {
   colors
@@ -55,17 +56,57 @@ export const reset = `
   }
 `;
 
+const fontFamilies = `
+  @font-face {
+    font-family: 'Aprova';
+    src:url('/static/fonts/Aprova-Regular.woff2') format('woff2'), 
+    url('/static/fonts/Aprova-Regular.woff') format('woff'), 
+    url('/static/fonts/Aprova-Regular.otf') format('opentype'), 
+    url('/static/fonts/Aprova-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  @font-face{
+    font-family: 'Aprova';
+    src:url('/static/fonts/Aprova-Bold.woff2') format('woff2'), 
+    url('/static/fonts/Aprova-Bold.woff') format('woff'), 
+    url('/static/fonts/Aprova-Bold.otf') format('opentype'), 
+    url('/static/fonts/Aprova-Bold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+  }
+
+  @font-face{
+    font-family: 'Aprova';
+    src:url('/static/fonts/Aprova-Black.woff2') format('woff2'), 
+    url('/static/fonts/Aprova-Black.woff') format('woff'), 
+    url('/static/fonts/Aprova-Black.otf') format('opentype'), 
+    url('/static/fonts/Aprova-Black.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+  } 
+` 
+
 const GlobalStyle = createGlobalStyle`
   ${reset}
+
+  ${fontFamilies}
 
   html {
     font-size: 10px;
   }
-  
+
   html,
   body {
     height: 100%;
+    font-family: ${fonts.default};
     color: ${colors.black.normal};
+  }
+
+  h1, h2, h3, h4, h5, h6, p {
+    font-family: ${fonts.default};
+    font-size: 20px;
   }
 `;
 
