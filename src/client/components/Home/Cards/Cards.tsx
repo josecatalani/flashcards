@@ -14,12 +14,14 @@ const StyledCardSubTitle = styled.h4``;
 const StyledCardCTA = styled.a``;
 
 const StyledGraphItem = styled.div`
-  height: 300px;
+  width: 100px;
+  height: 100px;
   border-radius: 100%;
   background: gray;
 
   ${media.desktop`
     width: 300px;
+    height: 300px;
   `}
 `;
 
