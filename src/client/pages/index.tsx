@@ -13,15 +13,10 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to MY LIFE
+          Welcome to MY Lifs
         </h1>
 
         <div className={styles.grid}>
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
           <a
             href="https://github.com/vercel/next.js/tree/master/examples"
             className={styles.card}

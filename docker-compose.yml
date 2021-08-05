@@ -1,11 +1,18 @@
-version: '3.4'
+version: "3.4"
 services:
   client:
     container_name: flashcards-client
+    restart: always
     build:
       context: src/client
       dockerfile: ../../Dockerfile.client
     volumes:
       - ./src/client:/app
+      - /app/node_modules
+      - /app/.next
     ports:
       - 3000:3000
+networks:
+  client:
+    name: network
+    driver: bridge
