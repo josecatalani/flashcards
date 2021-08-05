@@ -1,4 +1,7 @@
 import Head from "next/head";
+import { Container, Row, Col } from "styled-bootstrap-grid";
+
+
 
 export default function Home() {
   return (
@@ -8,7 +11,23 @@ export default function Home() {
         <meta name="description" content="Uma forma de estudar interativa" />
       </Head>
       <main>
-        <h1>Home</h1>
+
+        <Container>
+          <Row>
+            <Col md={12}>
+              <h1>Home</h1>
+            </Col>
+            <Col md={4}>
+              Coluna
+            </Col>
+            <Col md={4}>
+              Coluna
+            </Col>
+            <Col md={4}>
+              Coluna
+            </Col>
+          </Row>
+        </Container>
       </main>
     </>
   );
