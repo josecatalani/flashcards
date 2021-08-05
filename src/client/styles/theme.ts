@@ -59,7 +59,11 @@ const GlobalStyle = createGlobalStyle`
   ${reset}
 
   html {
-    font-size: 10px;
+    font-size: 62.5%;
+  }
+
+  body {
+    font-size: 1.4rem;
   }
   
   html,
