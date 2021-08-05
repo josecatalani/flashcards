@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from "next/head";
 
 export default function Home() {
   return (
@@ -7,6 +7,9 @@ export default function Home() {
         <title>Uma forma de estudar interativa</title>
         <meta name="description" content="Uma forma de estudar interativa" />
       </Head>
+      <main>
+        <h1>Home</h1>
+      </main>
     </>
-  )
+  );
 }
