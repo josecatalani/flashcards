@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  client:
+    container_name: flashcards-client
+    build:
+      context: src/client
+      dockerfile: ../../Dockerfile.client
+    volumes:
+      - ./src/client:/app
+    ports:
+      - 3000:3000
