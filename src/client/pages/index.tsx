@@ -3,13 +3,15 @@ import React from "react";
 import App from "../components/App/App";
 import { Container, Row, Col } from "styled-bootstrap-grid";
 import styled from "styled-components";
+import Hero from "../components/Hero/Hero";
 
-const Card = styled.div(({theme: { colors }}) => `
+const Card = styled.div(
+  ({ theme: { colors } }) => `
     border: 1px solid ${colors.gray.two};
     border-radius: 6px;
     width: 100%;
     padding: 20px;
-  `,
+  `
 );
 
 export default function Landing() {
@@ -21,6 +23,7 @@ export default function Landing() {
       </Head>
 
       <main>
+        <Hero />
         <Container>
           <Row>
             <Col md={12}>
