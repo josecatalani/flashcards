@@ -45,5 +45,3 @@ const Header: FC = () => {
 };
 
 export default Header;
-
-540 + 95 + 475
