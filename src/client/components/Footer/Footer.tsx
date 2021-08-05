@@ -2,7 +2,7 @@ import React, { FC } from "react";
 import styled from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 
-const FooterWrapper = styled.div(({ theme: { colors } }) => `
+const FooterWrapper = styled.footer(({ theme: { colors } }) => `
   background-color: #B7B7B7;
   padding: 100px 0 40px;
 `);
