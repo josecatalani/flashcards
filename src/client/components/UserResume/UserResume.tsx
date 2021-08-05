@@ -17,7 +17,7 @@ const Placeholder = styled.div(({ theme: { colors } }) => `
   border-radius: 24px;
 `);
 
-const ProgressAndAchievements: FC = () => {
+const UserResume: FC = () => {
   return (
     <Wrapper>
       <Container>
@@ -36,4 +36,4 @@ const ProgressAndAchievements: FC = () => {
   );
 };
 
-export default ProgressAndAchievements;
+export default UserResume;

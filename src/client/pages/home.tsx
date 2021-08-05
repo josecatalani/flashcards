@@ -1,7 +1,7 @@
 import Head from "next/head";
 import App from "../components/App/App";
 import Footer from "../components/Footer";
-import ProgressAndAchievements from "../components/ProgressAndAchievements";
+import UserResume from "../components/UserResume";
 
 export default function MyHome() {
   return (
@@ -14,7 +14,7 @@ export default function MyHome() {
         <h1>Home</h1>
       </main>
 
-      <ProgressAndAchievements />
+      <UserResume />
       <Footer />
     </App>
   );
