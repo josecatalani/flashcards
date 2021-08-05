@@ -1,1 +1,3 @@
-export * from "./CTAWrapper";
+import CTAWrapper from "./CTAWrapper";
+
+export default CTAWrapper;

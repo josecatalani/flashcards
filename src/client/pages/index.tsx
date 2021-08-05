@@ -1,10 +1,10 @@
 import Head from "next/head";
 import React from "react";
 import App from "../components/App/App";
-import { Info } from "../components/Home/Info";
-import { Hero } from "../components/Home/Hero";
-import { Cards } from "../components/Home/Cards";
-import { Footer } from "../components/Home/Footer";
+import Cards from "../components/Home/Cards";
+import Footer from "../components/Home/Footer";
+import Hero from "../components/Home/Hero";
+import Info from "../components/Home/Info";
 
 export default function Landing() {
   return (
