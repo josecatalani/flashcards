@@ -1,5 +1,6 @@
 const fonts = {
-  default: '"Aprova", sans-serif',
+  title: '"Aprova", sans-serif',
+  text: '"Verdana", sans-serif',
 };
 
 export default fonts;

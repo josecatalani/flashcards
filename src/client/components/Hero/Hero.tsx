@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Container, Row, Col } from "styled-bootstrap-grid";
+import { media } from "styled-bootstrap-grid";
 
 const StyledHero = styled.div``;
 
@@ -9,8 +10,14 @@ const StyledTitle = styled.h1``;
 const StyledDescription = styled.p``;
 
 const StyledCard = styled.div`
-  width: 300px;
-  height: 300px;
+  height: 445px;
+  background: gray;
+  border-radius: 20px;
+  margin: 0 auto;
+  
+  ${media.desktop`
+    width: 445px;
+  `}
 `;
 
 const Hero: FC = () => {
@@ -18,13 +25,8 @@ const Hero: FC = () => {
     <StyledHero>
       <Container>
         <Row>
-          <Col>
-            <StyledTitle>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
-              ultrices suscipit neque, in egestas tellus varius eu. Integer
-              consequat ac orci at semper. Fusce lacinia enim et elementum
-              tristique
-            </StyledTitle>
+          <Col md={6}>
+            <StyledTitle>Lorem ipsum dolor sit amet</StyledTitle>
             <StyledDescription>
               Cras quis commodo turpis. Ut rhoncus, dolor sed suscipit
               vulputate, turpis lorem euismod nulla, id eleifend lorem augue nec
@@ -39,7 +41,7 @@ const Hero: FC = () => {
               Praesent venenatis ex at eros cursus, id porttitor risus laoreet.
             </StyledDescription>
           </Col>
-          <Col>
+          <Col md={6}>
             <StyledCard />
           </Col>
         </Row>

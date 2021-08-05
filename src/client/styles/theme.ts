@@ -1,9 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
-import colors from './colors';
-import fonts from './fonts';
+import { createGlobalStyle } from "styled-components";
+import colors from "./colors";
+import fonts from "./fonts";
+import { media } from "styled-bootstrap-grid";
 
-const styledTheme: { colors: { [key: string]: { [key: string]: string } }; } = {
-  colors
+const styledTheme: { colors: { [key: string]: { [key: string]: string } } } = {
+  colors,
 };
 
 export const reset = `
@@ -86,7 +87,7 @@ const fontFamilies = `
     font-weight: 800;
     font-style: normal;
   } 
-` 
+`;
 
 const GlobalStyle = createGlobalStyle`
   ${reset}
@@ -99,19 +100,58 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1.4rem;
+    line-height: 1.2;
+    font-family: ${fonts.text};
   }
 
   html,
   body {
     height: 100%;
-    font-family: ${fonts.default};
     color: ${colors.black.normal};
   }
 
-  h1, h2, h3, h4, h5, h6, p {
-    font-family: ${fonts.default};
-    font-size: 20px;
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${fonts.title};
+    line-height: 1;
   }
+
+  h1 {
+    font-size: 5.6rem;
+  }
+
+  h2 {
+    font-size: 5.6rem;
+  }
+
+  h3 {
+    font-size: 4.8rem;
+  }
+
+  h4 {
+    font-size: 4rem;
+  }
+
+  h5 {
+    font-size: 3.2rem;
+  }
+
+  h6 {
+    font-size: 2.4rem;
+  }
+
+  ${media.desktop`
+    body {
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.2;
+    }
+
+    h1 {
+      font-size: 7.2rem;
+    }
+  `}
 `;
 
 export { styledTheme, GlobalStyle };
