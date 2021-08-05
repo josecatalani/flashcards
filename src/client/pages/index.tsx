@@ -1,11 +1,11 @@
 import Head from "next/head";
 import React from "react";
 import App from "../components/App/App";
-import Cards from "../components/Home/Cards";
+import Cards from "../components/Landing/Cards";
 import Footer from "../components/Footer";
-import Hero from "../components/Home/Hero";
-import Info from "../components/Home/Info";
-import CTAWrapper from "../components/Home/CTAWrapper";
+import Hero from "../components/Landing/Hero";
+import Info from "../components/Landing/Info";
+import CTAWrapper from "../components/Landing/CTAWrapper";
 
 export default function Landing() {
   return (

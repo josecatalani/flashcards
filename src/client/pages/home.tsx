@@ -1,7 +1,7 @@
 import Head from "next/head";
 import App from "../components/App/App";
 import Footer from "../components/Footer";
-import UserResume from "../components/UserResume";
+import UserResume from "../components/Home/UserResume";
 
 export default function MyHome() {
   return (
