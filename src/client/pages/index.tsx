@@ -1,9 +1,9 @@
 import Head from "next/head";
 import React from "react";
 import App from "../components/App/App";
-import styled from "styled-components";
-import { Info } from "../components/Info";
-import { Hero } from "../components/Hero";
+import { Info } from "../components/Home/Info";
+import { Hero } from "../components/Home/Hero";
+import { Cards } from "../components/Home/Cards";
 
 export default function Landing() {
   return (
@@ -14,6 +14,7 @@ export default function Landing() {
       </Head>
       <Hero />
       <Info />
+      <Cards />
     </App>
   );
 }
