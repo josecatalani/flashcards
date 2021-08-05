@@ -2,9 +2,10 @@ import Head from "next/head";
 import React from "react";
 import App from "../components/App/App";
 import Cards from "../components/Home/Cards";
-import Footer from "../components/Home/Footer";
+import Footer from "../components/Footer";
 import Hero from "../components/Home/Hero";
 import Info from "../components/Home/Info";
+import CTAWrapper from "../components/Home/CTAWrapper";
 
 export default function Landing() {
   return (
@@ -16,6 +17,7 @@ export default function Landing() {
       <Hero />
       <Info />
       <Cards />
+      <CTAWrapper />
       <Footer />
     </App>
   );
