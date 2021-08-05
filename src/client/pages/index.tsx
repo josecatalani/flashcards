@@ -4,7 +4,7 @@ import App from "../components/App/App";
 import { Info } from "../components/Home/Info";
 import { Hero } from "../components/Home/Hero";
 import { Cards } from "../components/Home/Cards";
-import Footer from '../components/Footer';
+import { Footer } from "../components/Home/Footer";
 
 export default function Landing() {
   return (

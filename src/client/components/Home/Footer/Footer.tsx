@@ -1,20 +1,19 @@
 import React, { FC } from "react";
-import Link from "next/link";
 import styled from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 
-const FooterWrapper = styled.div(({theme: { colors }}) => `
+const FooterWrapper = styled.div(({ theme: { colors } }) => `
   background-color: #B7B7B7;
-  padding: 100px 0 40px; 
+  padding: 100px 0 40px;
 `);
 
 const LogoWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-top: 70px;
-`;  
+`;
 
-const Header: FC = () => {
+const Footer: FC = () => {
   return (
     <FooterWrapper>
       <Container>
@@ -44,4 +43,4 @@ const Header: FC = () => {
   );
 };
 
-export default Header;
+export default Footer;
