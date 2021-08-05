@@ -4,6 +4,7 @@ import App from "../components/App/App";
 import { Container, Row, Col } from "styled-bootstrap-grid";
 import styled from "styled-components";
 import Hero from "../components/Hero/Hero";
+import Footer from "../components/Footer";
 
 const Card = styled.div(
   ({ theme: { colors } }) => `
@@ -41,6 +42,7 @@ export default function Landing() {
           </Row>
         </Container>
       </main>
+      <Footer />
     </App>
   );
 }
