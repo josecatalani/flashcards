@@ -46,7 +46,7 @@ const renderCard = ({
   description: string;
 }) => {
   return (
-    <Col md={6}>
+    <Col md={6} key={`card_row_${title}`}>
       <StyledCard>
         {title} e {description}
       </StyledCard>
