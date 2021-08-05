@@ -1,7 +1,9 @@
 import { useRouter } from "next/router";
 import React from "react";
 import App from "../components/App";
+import DeckPage from "../components/DeckPage";
 import Jumbotron from "../components/ThemePage/Jumbotron";
+import ThemePage from "../components/ThemePage/ThemePage";
 
 const Decks = () => {
   const router = useRouter();
@@ -14,8 +16,7 @@ const Decks = () => {
   const renderThemePage = () => {
     return (
       <>
-        <h1>Raiz dos temas</h1>
-        <Jumbotron />
+        <ThemePage />
       </>
     );
   };
@@ -23,8 +24,7 @@ const Decks = () => {
   const renderDeckPage = () => {
     return (
       <>
-        <h1>Detalhe do tema</h1>
-        <Jumbotron />
+        <DeckPage />
       </>
     );
   };
