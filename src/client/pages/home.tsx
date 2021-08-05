@@ -1,5 +1,6 @@
 import Head from "next/head";
 import App from "../components/App/App";
+import Footer from "../components/Footer";
 
 export default function MyHome() {
   return (
@@ -11,6 +12,8 @@ export default function MyHome() {
       <main>
         <h1>Home</h1>
       </main>
+
+      <Footer />
     </App>
   );
 }
