@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import App from "../components/App/App";
+import { Container, Row, Col } from "styled-bootstrap-grid";
 
 export default function Landing() {
   return (
@@ -13,7 +14,16 @@ export default function Landing() {
         />
       </Head>
       <main>
-        <h1>Home</h1>
+        <Container>
+          <Row>
+            <Col md={12}>
+              <h1>Home</h1>
+            </Col>
+            <Col md={4}>Coluna</Col>
+            <Col md={4}>Coluna</Col>
+            <Col md={4}>Coluna</Col>
+          </Row>
+        </Container>
       </main>
     </App>
   );
