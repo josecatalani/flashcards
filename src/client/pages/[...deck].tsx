@@ -24,7 +24,6 @@ const Decks = () => {
   return (
     <App>
       {renderTheme ? renderThemePage() : renderDeck ? renderDeckPage() : null}
-      <Footer />
     </App>
   );
 };
