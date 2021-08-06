@@ -7,9 +7,9 @@ export const digitalMarketing: ICard[] = [
       "Atua na contratação e desenvolvimento de colaboradores, gerencia cargos, salários e benefícios e implementa avaliação do desempenho.",
   },
   {
-    question: "O que faz um profissional de Administração Estratégica?",
+    question: "O profissão de back-end, qual sua função?",
     answer:
-      "Identifica forças e fraquezas da empresa, estuda o mercado e, com base nas respostas, estrutura ações para as metas serem alcançadas.",
+      "Área focada nos bastidores de um software. Ele faz com que o banco de dados, a camada front-end e o servidor funcionem em sincronia.",
   },
   {
     question: "O que faz um profissional de Administração Financeira?",
