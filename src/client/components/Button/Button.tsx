@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 
-const StyledButton = styled.button<{ buttonTheme: string }>(
-  ({ buttonTheme, theme: { colors, fonts } }) => css`
+const StyledButton = styled.button<{ buttonTheme: string; noHover: boolean }>(
+  ({ buttonTheme, noHover, theme: { colors, fonts } }) => css`
     padding: 12px 32px;
     border-radius: 32px;
     background: transparent;
@@ -20,9 +20,13 @@ const StyledButton = styled.button<{ buttonTheme: string }>(
       ? css`
           background: ${colors.primary.normal};
 
-          &:hover {
-            background: ${colors.primary.dark};
-          }
+          ${noHover
+            ? css``
+            : css`
+                &:hover {
+                  background: ${colors.primary.dark};
+                }
+              `}
         `
       : css``}
 
@@ -30,22 +34,27 @@ const StyledButton = styled.button<{ buttonTheme: string }>(
       ? css`
           background: white;
 
-          &:hover {
-            background: black;
-            color: white;
-          }
+          ${noHover
+            ? css``
+            : css`
+                &:hover {
+                  background: black;
+                  color: white;
+                }
+              `}
         `
       : css``}
   `
 );
 
-const Button: FC<{ theme: string; className?: string }> = ({
+const Button: FC<{ theme: string; className?: string; noHover?: boolean }> = ({
   children,
   theme,
   className,
+  noHover,
 }) => {
   return (
-    <StyledButton buttonTheme={theme} className={className}>
+    <StyledButton buttonTheme={theme} className={className} noHover={noHover}>
       {children}
     </StyledButton>
   );
@@ -53,6 +62,7 @@ const Button: FC<{ theme: string; className?: string }> = ({
 
 Button.defaultProps = {
   theme: "clean",
+  noHover: false,
 };
 
 export default Button;
