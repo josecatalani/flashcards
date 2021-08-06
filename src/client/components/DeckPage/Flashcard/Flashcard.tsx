@@ -212,14 +212,14 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
   const [chancesRemaining, setChancesRemaining] = useState<number>(totalChances);
   const [currentItem, setCurrentItem] = useState<number>(0);
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
-  const [cardsDone, setCardsDone] = useState<number>(0);
+  const [cardsDone, setCardsDone] = useState<number[]>([]);
 
   useEffect(() => {
     setShowAnswer(false);
   }, [currentItem])
 
   const handleCorrect = () => {
-    setCardsDone(cardsDone + 1);
+    setCardsDone(oldArr => [...oldArr, currentItem]);
     setCurrentItem(currentItem === cardList.length - 1 ? 0 : currentItem + 1)
     setShowAnswer(false);
   }
@@ -229,7 +229,7 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
     setShowAnswer(false);
   }
 
-  const completedPercentage = 100 * cardsDone / cardList.length - 1;
+  const completedPercentage = 100 * cardsDone.length / cardList.length - 1;
   return (
     <FlashcardWrapper>
       <CardWrapper>
@@ -257,7 +257,7 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
               <CardAnswer>
                 {cardList[currentItem].answer}
               </CardAnswer>
-              {!!chancesRemaining && (
+              {!cardsDone.includes(currentItem) && !!chancesRemaining && (
                 <AnswerCheck>
                   <p>Você acertou a resposta que imaginou?</p><br />
                   <ButtonsWrapper>
