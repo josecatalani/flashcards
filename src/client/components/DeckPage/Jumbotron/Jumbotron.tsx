@@ -76,7 +76,12 @@ const ToolsWrapper = styled.div`
 
 const cardList: ICardItem[] = [
   {
-    chances: 4,
+    chances: 2,
+    question: 'Oi, tudo bem com você?',
+    answer: 'Tudo bem! Tchau.',
+  },
+  {
+    chances: 3,
     question: 'Oi, tudo bem com você?',
     answer: 'Tudo bem! Tchau.',
   },
@@ -86,12 +91,7 @@ const cardList: ICardItem[] = [
     answer: 'Tudo bem! Tchau.',
   },
   {
-    chances: 4,
-    question: 'Oi, tudo bem com você?',
-    answer: 'Tudo bem! Tchau.',
-  },
-  {
-    chances: 4,
+    chances: 5,
     question: 'Oi, tudo bem com você?',
     answer: 'Tudo bem! Tchau.',
   },

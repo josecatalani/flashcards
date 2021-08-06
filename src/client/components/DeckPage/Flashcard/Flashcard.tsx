@@ -10,11 +10,6 @@ const Card = styled.div`
   height: 362px;
   position: relative;
   z-index: 3;
-
-
-  &:before {
-    content: '';
-  }
 `;
 
 const ChancesWrapper = styled.div`
@@ -68,6 +63,8 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
     setChancesRemaining(cardList[currentItem].chances);
   }, [currentItem, cardList])
 
+  console.log(cardList.length, currentItem);
+
   const { chances } = cardList[currentItem];
   return (
     <FlashcardWrapper>
@@ -79,9 +76,9 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
       <CardOptions>
         <OptionShape />
         <div>
-          <OptionShape />
+          <OptionShape onClick={() => setCurrentItem(currentItem === 0 ? cardList.length - 1 : currentItem - 1)} />
 
-          <OptionShape />
+          <OptionShape onClick={() => setCurrentItem(currentItem === cardList.length - 1 ? 0 : currentItem + 1)} />
         </div>
         <OptionShape />
       </CardOptions>
