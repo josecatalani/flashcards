@@ -112,6 +112,7 @@ const ProgressBar = styled.div<{ percentage: number; backActive: boolean; }>(({ 
   border-radius: 45px;
   position: ${backActive ? 'initial' : 'relative'};
   order: 1;
+  overflow: hidden;
 
   &::before {
     content: '';
