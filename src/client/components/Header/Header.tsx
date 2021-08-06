@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import styled from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import Link from "next/link";
@@ -7,9 +7,13 @@ import LogoImg from "../../public/static/logo.svg";
 import NotificationImg from "../../public/static/notification.png";
 import ProfileImg from "../../public/static/paulinha.png";
 import Button from "../Button/Button";
+import { Context } from "../../context/Store";
 
 const StyledHeader = styled.header`
   padding: 26px 0;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `;
 
 const StyledMenuAligner = styled.div`
@@ -40,10 +44,13 @@ const StyledNotification = styled.div`
 const StyledProfileLink = styled.a``;
 
 const Header: FC = () => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [state, dispatch] = useContext(Context);
 
   const doLogin = () => {
-    setIsLogged(!isLogged);
+    dispatch({ type: "DO_LOGIN" });
+  };
+  const doLogout = () => {
+    dispatch({ type: "DO_LOGOUT" });
   };
 
   const renderLoggedMenu = () => {
@@ -78,7 +85,7 @@ const Header: FC = () => {
                   </StyledProfileLink>
                 </Link>
               </div>
-              <div onClick={doLogin}>Sair</div>
+              <div onClick={doLogout}>Sair</div>
             </StyledMenuRightAligner>
           </Col>
         </Row>
@@ -108,7 +115,7 @@ const Header: FC = () => {
 
   return (
     <StyledHeader>
-      {isLogged ? renderLoggedMenu() : renderAnonymousMenu()}
+      {state.isLogged ? renderLoggedMenu() : renderAnonymousMenu()}
     </StyledHeader>
   );
 };

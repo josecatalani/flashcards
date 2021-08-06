@@ -49,8 +49,8 @@ const ThemePage: FC = () => {
       <Container>
         <Row>
           <Col md={9}>
-            <CardDrawer title="Title" cards={cards} />
-            <CardDrawer title="Title" cards={cards} />
+            <CardDrawer title="Decks da Paula" cards={cards} />
+            <CardDrawer title="Decks da Descomplica" cards={cards} />
           </Col>
           <Col md={3}>bla</Col>
         </Row>

@@ -17,7 +17,7 @@ const StyledCardSubTitle = styled.p`
 
 const StyledIcon = styled(Image)`
   height: auto !important;
-`
+`;
 
 const StyledCard = styled.div`
   background: #ffffff;
@@ -36,14 +36,14 @@ const ClickCard: FC<{
   title: string;
   subtitle: string;
   link: string;
-  icon: StaticImageData;
+  icon?: StaticImageData;
 }> = ({ title, subtitle, link, icon }) => {
   return (
     <Col md={4} key={`card_row_${title}_${subtitle}`}>
       <StyledCard>
         <Link href={link}>
           <a>
-            <StyledIcon src={icon}  />
+            {icon && <StyledIcon src={icon} />}
             <StyledCardTitle>{title}</StyledCardTitle>
             <StyledCardSubTitle>{subtitle}</StyledCardSubTitle>
           </a>
