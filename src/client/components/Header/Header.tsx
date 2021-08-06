@@ -3,13 +3,16 @@ import styled, { css } from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import Link from "next/link";
 import Image from "next/image";
-import LogoImg from "../../public/static/logo.svg";
-import NotificationImg from "../../public/static/notification.png";
+const NotificationImg = "/static/notification.png";
 import ProfileImg from "../../public/static/paulinha.png";
 import Button from "../Button/Button";
 import { Context } from "../../context/Store";
 import { useRouter } from "next/router";
 import Input from "../Input";
+import { route } from "next/dist/next-server/server/router";
+
+const LogoImg = "/static/logo.svg";
+const LogoWhiteImg = "/static/logo-white.png";
 
 const StyledHeader = styled.header<{ isBlackTheme: boolean }>(
   ({ isBlackTheme }) => css`
@@ -22,7 +25,9 @@ const StyledHeader = styled.header<{ isBlackTheme: boolean }>(
           background: #313435;
           color: white;
         `
-      : css``}
+      : css`
+          background: white;
+        `}
   `
 );
 
@@ -74,6 +79,7 @@ const Header: FC = () => {
   const [state, dispatch] = useContext(Context);
 
   const isBlackTheme = router?.query?.deck?.length === 3 || false;
+  const isHome = router && router.route === "/home";
 
   const doLogin = () => {
     dispatch({ type: "DO_LOGIN" });
@@ -88,7 +94,7 @@ const Header: FC = () => {
         <Row smJustifyContent="between">
           <Col auto>
             <StyledMenuAligner>
-              <Image src={LogoImg} />
+              <img src={isBlackTheme ? LogoWhiteImg : LogoImg} />
               <Link href="/">
                 <a>
                   <Button theme={isBlackTheme ? "black" : "clean"} noHover>
@@ -109,7 +115,7 @@ const Header: FC = () => {
           <Col auto>
             <StyledMenuRightAligner isBlackTheme={isBlackTheme}>
               <StyledNotification isBlackTheme={isBlackTheme}>
-                <Image src={NotificationImg} />
+                <img src={NotificationImg} />
               </StyledNotification>
               <div>
                 <Link href="/perfil">
@@ -132,7 +138,7 @@ const Header: FC = () => {
         <Row smJustifyContent="between">
           <Col auto>
             <Link href="/">
-              <Image src={LogoImg} />
+              <img src={LogoImg} />
             </Link>
           </Col>
           <Col auto>
@@ -148,7 +154,9 @@ const Header: FC = () => {
 
   return (
     <StyledHeader isBlackTheme={isBlackTheme}>
-      {state.isLogged ? renderLoggedMenu() : renderAnonymousMenu()}
+      {state.isLogged || isBlackTheme || isHome
+        ? renderLoggedMenu()
+        : renderAnonymousMenu()}
     </StyledHeader>
   );
 };

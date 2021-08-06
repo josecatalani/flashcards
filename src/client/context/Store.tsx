@@ -1,5 +1,20 @@
 import React, { createContext, useReducer } from "react";
-import Reducer from "./reducer";
+const Reducer = (state: any, action: any) => {
+  switch (action.type) {
+    case "DO_LOGOUT":
+      return {
+        ...state,
+        isLogged: false,
+      };
+    case "DO_LOGIN":
+      return {
+        ...state,
+        isLogged: true,
+      };
+    default:
+      return state;
+  }
+};
 
 const initialState = {
   isLoading: false,

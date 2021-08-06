@@ -29,7 +29,13 @@ const CardDrawer: FC<{
         <StyledCardsWrapper>
           <Row>
             {cards.map(({ title, link }) => (
-              <ColorCard title={title} link={link} color={"pink"} />
+              <ColorCard
+                title={title}
+                link={link}
+                color={"pink"}
+                participants={10}
+                flashcards={10}
+              />
             ))}
           </Row>
         </StyledCardsWrapper>

@@ -54,7 +54,7 @@ const CTAWrapper: FC = () => {
             </Title>
           </Col>
           <Col md={6}>
-            <Media>hehe</Media>
+            <Media></Media>
           </Col>
         </Row>
       </Container>
