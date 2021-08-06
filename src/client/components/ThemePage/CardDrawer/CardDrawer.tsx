@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import styled from "styled-components";
 import { Row, Col } from "styled-bootstrap-grid";
-import ClickCard from "../../Shared/ClickCard";
+import ColorCard from "../../Shared/ColorCard";
 
 const StyledCardDrawer = styled.div`
   padding: 40px 0;
@@ -28,8 +28,8 @@ const CardDrawer: FC<{
       {cards && (
         <StyledCardsWrapper>
           <Row>
-            {cards.map(({ title, subtitle, link }) => (
-              <ClickCard title={title} subtitle={subtitle} link={link} />
+            {cards.map(({ title, link }) => (
+              <ColorCard title={title} link={link} color={"pink"} />
             ))}
           </Row>
         </StyledCardsWrapper>

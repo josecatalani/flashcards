@@ -5,6 +5,7 @@ import SchoolImg from "../../../public/static/school.png";
 import Image from "next/image";
 import Button from "../../Button";
 import Link from "next/link";
+import { themesData } from "../../../data/theme";
 
 const StyledCards = styled.div`
   padding: 80px 0 50px 0;
@@ -42,27 +43,6 @@ const StyledCard = styled.div`
   margin-bottom: 30px;
 `;
 
-const cardsData = [
-  {
-    title: "Ciências Sociais",
-    subtitle:
-      "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "/ciencias-sociais",
-  },
-  {
-    title: "Marketing Digital",
-    subtitle:
-      "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "/marketing-digital",
-  },
-  {
-    title: "Psicologia",
-    subtitle:
-      "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "/psicologia",
-  },
-];
-
 const renderCard = ({
   title,
   subtitle,
@@ -97,7 +77,7 @@ const Cards: FC = () => {
             <StyledTitle>Cada novo tema aprendido é uma conquista.</StyledTitle>
           </Col>
         </Row>
-        <Row>{cardsData.map((card) => renderCard(card))}</Row>
+        <Row>{themesData.map((card) => renderCard(card))}</Row>
       </Container>
     </StyledCards>
   );

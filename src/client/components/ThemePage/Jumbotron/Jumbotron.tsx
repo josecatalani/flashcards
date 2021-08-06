@@ -29,20 +29,18 @@ const StyledBanner = styled.img(
   `
 );
 
-const Jumbotron: FC = () => {
+const Jumbotron: FC<{ title: string; subtitle: string }> = ({
+  title,
+  subtitle,
+}) => {
   return (
     <StyledJumbotron>
       <StyledBanner src={"/static/advogado.jpg"} />
       <Container>
         <Row mdJustifyContent="between">
           <Col>
-            <StyledTitle>Ciências Sociais</StyledTitle>
-            <StyledSubTitle>
-              Ciências Sociais são uma área que trabalha com a investigação e a
-              pesquisa sobre aspectos relacionados ao comportamento humano. Por
-              isso, para estudar essa disciplina, é importante compreender o
-              funcionamento da sociedade e fenômenos sociais atuais.
-            </StyledSubTitle>
+            {title && <StyledTitle>{title}</StyledTitle>}
+            {subtitle && <StyledSubTitle>{subtitle}</StyledSubTitle>}
           </Col>
         </Row>
       </Container>

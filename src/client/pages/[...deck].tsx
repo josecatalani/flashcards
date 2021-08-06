@@ -14,19 +14,11 @@ const Decks = () => {
   const renderDeck = theme && deckId && deckFriendlyName;
 
   const renderThemePage = () => {
-    return (
-      <>
-        <ThemePage />
-      </>
-    );
+    return <ThemePage />;
   };
 
   const renderDeckPage = () => {
-    return (
-      <>
-        <DeckPage />
-      </>
-    );
+    return <DeckPage />;
   };
 
   return (
