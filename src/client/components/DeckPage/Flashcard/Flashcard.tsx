@@ -185,6 +185,7 @@ const AnswerCheck = styled.div`
   p {
     display: block;
     text-align: center;
+    margin-bottom: -10px;
   }
 `;
 
