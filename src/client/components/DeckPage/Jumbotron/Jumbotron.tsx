@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import styled, { css } from "styled-components";
 import Flashcard, { ICardItem } from "../Flashcard";
+import { companyAdministration } from "../../../data/professionDecks/companyAdministrationDecks";
 const RepeatImg = "/static/repeat.png";
 const ShareImg = "/static/share.png";
 const ReportImg = "/static/report.png";
@@ -94,29 +95,6 @@ const TeacherName = styled.p`
   color: #ffffff;
 `;
 
-const cardList: ICardItem[] = [
-  {
-    chances: 2,
-    question: "Oi, tudo bem com você?",
-    answer: "Tudo bem! Tchau.",
-  },
-  {
-    chances: 3,
-    question: "Oi, tudo bem com você?",
-    answer: "Tudo bem! Tchau.",
-  },
-  {
-    chances: 4,
-    question: "Oi, tudo bem com você?",
-    answer: "Tudo bem! Tchau.",
-  },
-  {
-    chances: 5,
-    question: "Oi, tudo bem com você?",
-    answer: "Tudo bem! Tchau.",
-  },
-];
-
 const StyledMainTitle = styled.h1`
   font-size: 56px;
   line-height: 64px;
@@ -193,7 +171,7 @@ const DeckPage: FC = () => {
           </Col>
           <Col md={9}>
             <CardWithTools>
-              <Flashcard cardList={cardList} />
+              <Flashcard cardList={companyAdministration} />
             </CardWithTools>
           </Col>
         </Row>
