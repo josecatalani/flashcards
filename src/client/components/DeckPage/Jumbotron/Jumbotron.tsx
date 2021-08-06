@@ -1,34 +1,27 @@
 import React, { FC } from "react";
 import { Col, Container, Row } from "styled-bootstrap-grid";
-import styled from "styled-components";
-import Flashcard, { ICardItem } from "../Flashcard"
+import styled, { css } from "styled-components";
+import Flashcard, { ICardItem } from "../Flashcard";
+const RepeatImg = "/static/repeat.png";
+const ShareImg = "/static/share.png";
+const ReportImg = "/static/report.png";
+const OdaImg = "/static/oda.png";
 
-const Wrapper = styled.div(({ theme: { colors } }) => `
-  background-color: #B7B7B7;
-  padding: 60px;
-`);
-
-const ShapeContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 245px;
-  margin: 0 0 0 auto;
-  padding-right: 95px;
-`;
-
-
-const PlaceholderShape = styled.button`
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-color: #DBDBDB;
-  border: none;
-`;
+const Wrapper = styled.div(
+  ({ theme: { colors } }) => css`
+    background: #191a1a;
+    padding: 60px;
+  `
+);
 
 const ExitLink = styled.a`
   margin-bottom: 52px;
   display: block;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  text-decoration-line: underline;
+  color: #969a9c;
 `;
 
 const FlashcardDetails = styled.div`
@@ -37,6 +30,37 @@ const FlashcardDetails = styled.div`
   justify-content: space-between;
   padding-bottom: 56px;
   height: 100%;
+
+  > div > p {
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: -0.4px;
+    text-transform: uppercase;
+    color: #969a9c;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+`;
+
+const FlashCardSidebarButton = styled.a`
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 24px;
+  background: #313435;
+  border-radius: 32px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 13px;
+  flex: 0;
+
+  > img {
+    margin-right: 9px;
+  }
+
+  &:hover {
+    background: #aaaaaa;
+  }
 `;
 
 const FlashcardProfile = styled.div`
@@ -47,7 +71,7 @@ const ProfilePicWrapper = styled.div`
   width: 64px;
   height: 64px;
   border-radius: 50%;
-  background-color: #DBDBDB;
+  background-color: #dbdbdb;
   margin-right: 15px;
   overflow: hidden;
 
@@ -62,40 +86,64 @@ const CardWithTools = styled.div`
   justify-content: space-between;
 `;
 
-const ToolShape = styled.div`
-  min-width: 40px;
-  min-height: 40px;
-  margin-bottom: 15px;
-  background-color: #DBDBDB;
-  border-radius: 50%;
-`
-
-const ToolsWrapper = styled.div`
-  margin-left: 25px;
+const TeacherName = styled.p`
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.8px;
+  color: #ffffff;
 `;
 
 const cardList: ICardItem[] = [
   {
     chances: 2,
-    question: 'Oi, tudo bem com você?',
-    answer: 'Tudo bem! Tchau.',
+    question: "Oi, tudo bem com você?",
+    answer: "Tudo bem! Tchau.",
   },
   {
     chances: 3,
-    question: 'Oi, tudo bem com você?',
-    answer: 'Tudo bem! Tchau.',
+    question: "Oi, tudo bem com você?",
+    answer: "Tudo bem! Tchau.",
   },
   {
     chances: 4,
-    question: 'Oi, tudo bem com você?',
-    answer: 'Tudo bem! Tchau.',
+    question: "Oi, tudo bem com você?",
+    answer: "Tudo bem! Tchau.",
   },
   {
     chances: 5,
-    question: 'Oi, tudo bem com você?',
-    answer: 'Tudo bem! Tchau.',
+    question: "Oi, tudo bem com você?",
+    answer: "Tudo bem! Tchau.",
   },
 ];
+
+const StyledMainTitle = styled.h1`
+  font-size: 56px;
+  line-height: 64px;
+  letter-spacing: -1.2px;
+  color: #ffffff;
+`;
+
+const StyledMainTitleCategory = styled.small`
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  color: #969a9c;
+  font-weight: 400;
+`;
+
+const TeacherTeam = styled.p`
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: -0.4px;
+  color: #969a9c;
+`;
+
+const TeacherWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+`;
 
 const DeckPage: FC = () => {
   return (
@@ -103,46 +151,49 @@ const DeckPage: FC = () => {
       <Container>
         <Row>
           <Col md={6}>
-            <h3>Title</h3>
-            <ExitLink href="#" target="_blank">Exit link</ExitLink>
-          </Col>
-          <Col md={6}>
-            <ShapeContainer>
-              <PlaceholderShape />
-              <PlaceholderShape />
-            </ShapeContainer>
+            <StyledMainTitle>
+              Title{" "}
+              <StyledMainTitleCategory>em Biologia</StyledMainTitleCategory>
+            </StyledMainTitle>
+            <ExitLink href="#" target="_blank">
+              Exit link
+            </ExitLink>
           </Col>
         </Row>
         <Row alignItems="stretch">
           <Col md={3}>
             <FlashcardDetails>
+              <div />
               <div>
-                <p>Caption</p>
-                <p>Subtitle</p>
-                <p>Subtitle</p>
-                <p>Subtitle</p>
+                <p>FLASHCARD</p>
+                <FlashCardSidebarButton>
+                  <img src={RepeatImg} />
+                  Repetir
+                </FlashCardSidebarButton>
+                <FlashCardSidebarButton>
+                  <img src={ShareImg} />
+                  Compartilhar
+                </FlashCardSidebarButton>
+                <FlashCardSidebarButton>
+                  <img src={ReportImg} />
+                  Denunciar
+                </FlashCardSidebarButton>
               </div>
 
               <FlashcardProfile>
                 <ProfilePicWrapper>
-                  {/*<img src="" alt=""/>*/}
+                  <img src={OdaImg} />
                 </ProfilePicWrapper>
-                <div>
-                  <p>Fulano</p>
-                  <p>Analista de dados</p>
-                </div>
+                <TeacherWrapper>
+                  <TeacherName>Flyn Ridder</TeacherName>
+                  <TeacherTeam>Aluno do Descomplica</TeacherTeam>
+                </TeacherWrapper>
               </FlashcardProfile>
             </FlashcardDetails>
           </Col>
           <Col md={9}>
             <CardWithTools>
               <Flashcard cardList={cardList} />
-              <ToolsWrapper>
-                <ToolShape />
-                <ToolShape />
-                <ToolShape />
-                <ToolShape />
-              </ToolsWrapper>
             </CardWithTools>
           </Col>
         </Row>
