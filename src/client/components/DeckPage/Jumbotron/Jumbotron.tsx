@@ -122,6 +122,7 @@ const StyledMainTitle = styled.h1`
   line-height: 64px;
   letter-spacing: -1.2px;
   color: #ffffff;
+  vertical-align: middle;
 `;
 
 const StyledMainTitleCategory = styled.small`
@@ -130,6 +131,8 @@ const StyledMainTitleCategory = styled.small`
   letter-spacing: -0.4px;
   color: #969a9c;
   font-weight: 400;
+  margin-left: 10px;
+  margin-bottom: 10px;
 `;
 
 const TeacherTeam = styled.p`
@@ -150,13 +153,13 @@ const DeckPage: FC = () => {
     <Wrapper>
       <Container>
         <Row>
-          <Col md={6}>
+          <Col auto>
             <StyledMainTitle>
-              Title{" "}
+              Fenótipo e Genótipo
               <StyledMainTitleCategory>em Biologia</StyledMainTitleCategory>
             </StyledMainTitle>
             <ExitLink href="#" target="_blank">
-              Exit link
+              Sair do flashcard
             </ExitLink>
           </Col>
         </Row>
