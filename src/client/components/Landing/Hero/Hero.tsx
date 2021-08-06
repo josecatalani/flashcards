@@ -6,7 +6,7 @@ import ArrowImage from "../../../public/static/arrow.png";
 import Image from "next/image";
 
 const WaveAnimation = keyframes`
-`
+`;
 
 const StyledHero = styled.div`
   padding-top: 40px;
@@ -22,7 +22,7 @@ const StyledDescription = styled.p`
 `;
 
 const StyledIcon = styled.div`
-  margin: 50px auto;
+  margin: 100px auto 50px auto;
 `;
 
 const StyledCardCategory = styled.p`
@@ -111,13 +111,11 @@ const StyledCard = styled.div<{ isActive: boolean; isAnimating: boolean }>(
           opacity: 0;
         `}
 
-    ${media.desktop`
     width: 445px;
     height: 445px;
-  `}
 
-  &::after,
-  &::before {
+    &::after,
+    &::before {
       width: 100%;
       height: 100%;
       background: #f2f2f3;
@@ -146,6 +144,8 @@ const StyledCard = styled.div<{ isActive: boolean; isAnimating: boolean }>(
 
 const StyledHeroCaroussel = styled.div`
   position: relative;
+  width: 445px;
+  height: 445px;
 
   ${StyledCard} {
     position: absolute;
