@@ -73,7 +73,7 @@ const renderCard = ({
   link: string;
 }) => {
   return (
-    <Col md={4} key={`card_row_${title}`}>
+    <Col md={4} key={`card_row_${title}_${subtitle}`}>
       <StyledCard>
         <Image src={SchoolImg} />
         <StyledCardTitle>{title}</StyledCardTitle>

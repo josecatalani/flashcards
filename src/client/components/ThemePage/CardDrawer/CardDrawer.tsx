@@ -28,7 +28,7 @@ const renderCard = ({
   link: string;
 }) => {
   return (
-    <Col md={4} key={`card_row_${title}`}>
+    <Col md={4} key={`card_row_${title}_carddrawer`}>
       <StyledCard>
         <Link href={link}>
           <a>

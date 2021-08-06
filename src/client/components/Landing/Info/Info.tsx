@@ -69,7 +69,7 @@ const renderCard = ({
   description: string;
 }) => {
   return (
-    <Col md={6} key={`card_row_${title}`}>
+    <Col md={6} key={`card_row_${title}_info`}>
       <StyledCard>
         <StyledCardTitle>{title}</StyledCardTitle>
         <StyledCardDescription>{description}</StyledCardDescription>
