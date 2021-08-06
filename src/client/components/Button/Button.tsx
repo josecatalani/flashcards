@@ -44,6 +44,22 @@ const StyledButton = styled.button<{ buttonTheme: string; noHover: boolean }>(
               `}
         `
       : css``}
+
+${buttonTheme === "black"
+      ? css`
+          background: #313435;
+          color: white;
+
+          ${noHover
+            ? css``
+            : css`
+                &:hover {
+                  background: #313435;
+                  color: white;
+                }
+              `}
+        `
+      : css``}
   `
 );
 
@@ -51,10 +67,14 @@ const Button: FC<{ theme: string; className?: string; noHover?: boolean }> = ({
   children,
   theme,
   className,
-  noHover,
+  noHover = false,
 }) => {
   return (
-    <StyledButton buttonTheme={theme} className={className} noHover={noHover}>
+    <StyledButton
+      buttonTheme={theme}
+      className={className}
+      noHover={noHover || false}
+    >
       {children}
     </StyledButton>
   );

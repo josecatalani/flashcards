@@ -1,5 +1,5 @@
 import React, { FC, useContext, useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import Link from "next/link";
 import Image from "next/image";
@@ -8,13 +8,23 @@ import NotificationImg from "../../public/static/notification.png";
 import ProfileImg from "../../public/static/paulinha.png";
 import Button from "../Button/Button";
 import { Context } from "../../context/Store";
+import { useRouter } from "next/router";
+import Input from "../Input";
 
-const StyledHeader = styled.header`
-  padding: 26px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-`;
+const StyledHeader = styled.header<{ isBlackTheme: boolean }>(
+  ({ isBlackTheme }) => css`
+    padding: 26px 0;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    ${isBlackTheme
+      ? css`
+          background: #313435;
+          color: white;
+        `
+      : css``}
+  `
+);
 
 const StyledMenuAligner = styled.div`
   display: flex;
@@ -22,29 +32,48 @@ const StyledMenuAligner = styled.div`
   justify-content: space-between;
 `;
 
-const StyledMenuRightAligner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-`;
+const StyledMenuRightAligner = styled.div<{ isBlackTheme: boolean }>(
+  ({ isBlackTheme }) => css`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    ${isBlackTheme
+      ? css`
+          background: #313435;
+        `
+      : css``}
+  `
+);
 
-const StyledNotification = styled.div`
-  border-radius: 25px;
-  padding: 8px;
-  background: #ffffff;
-  border: 1px solid #e5e6e7;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
+const StyledNotification = styled.div<{ isBlackTheme: boolean }>(
+  ({ isBlackTheme }) => css`
+    border-radius: 25px;
+    padding: 8px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    ${isBlackTheme
+      ? css`
+          background: #191a1a;
+        `
+      : css`
+          background: #ffffff;
+          border: 1px solid #e5e6e7;
+        `}
+  `
+);
 
 const StyledProfileLink = styled.a``;
 
 const Header: FC = () => {
+  const router = useRouter();
+  // @ts-ignore
   const [state, dispatch] = useContext(Context);
+
+  const isBlackTheme = router?.query?.deck?.length === 3 || false;
 
   const doLogin = () => {
     dispatch({ type: "DO_LOGIN" });
@@ -62,7 +91,7 @@ const Header: FC = () => {
               <Image src={LogoImg} />
               <Link href="/">
                 <a>
-                  <Button theme="clean" noHover>
+                  <Button theme={isBlackTheme ? "black" : "clean"} noHover>
                     Pagina Inicial
                   </Button>
                 </a>
@@ -71,11 +100,15 @@ const Header: FC = () => {
             </StyledMenuAligner>
           </Col>
           <Col auto>
-            <input type="text" placeholder="Busque aqui" />
+            <Input
+              type="text"
+              placeholder="Busque aqui"
+              isBlackTheme={isBlackTheme}
+            />
           </Col>
           <Col auto>
-            <StyledMenuRightAligner>
-              <StyledNotification>
+            <StyledMenuRightAligner isBlackTheme={isBlackTheme}>
+              <StyledNotification isBlackTheme={isBlackTheme}>
                 <Image src={NotificationImg} />
               </StyledNotification>
               <div>
@@ -114,7 +147,7 @@ const Header: FC = () => {
   };
 
   return (
-    <StyledHeader>
+    <StyledHeader isBlackTheme={isBlackTheme}>
       {state.isLogged ? renderLoggedMenu() : renderAnonymousMenu()}
     </StyledHeader>
   );
