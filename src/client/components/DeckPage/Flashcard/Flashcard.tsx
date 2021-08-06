@@ -207,7 +207,7 @@ interface IPropsFlashcard {
 
 const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
   const totalChances = 4;
-  const [chancesRemaining, setChancesRemaining] = useState<number>(3);
+  const [chancesRemaining, setChancesRemaining] = useState<number>(totalChances);
   const [currentItem, setCurrentItem] = useState<number>(0);
   const [showAnswer, setShowAnswer] = useState<boolean>(false);
   const [cardsDone, setCardsDone] = useState<number>(0);
