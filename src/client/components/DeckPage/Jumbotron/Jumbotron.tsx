@@ -57,6 +57,23 @@ const ProfilePicWrapper = styled.div`
   }
 `;
 
+const CardWithTools = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const ToolShape = styled.div`
+  min-width: 40px;
+  min-height: 40px;
+  margin-bottom: 15px;
+  background-color: #DBDBDB;
+  border-radius: 50%;
+`
+
+const ToolsWrapper = styled.div`
+  margin-left: 25px;
+`;
+
 const cardList: ICardItem[] = [
   {
     chances: 4,
@@ -118,7 +135,15 @@ const DeckPage: FC = () => {
             </FlashcardDetails>
           </Col>
           <Col md={9}>
-            <Flashcard cardList={cardList} />
+            <CardWithTools>
+              <Flashcard cardList={cardList} />
+              <ToolsWrapper>
+                <ToolShape />
+                <ToolShape />
+                <ToolShape />
+                <ToolShape />
+              </ToolsWrapper>
+            </CardWithTools>
           </Col>
         </Row>
       </Container>

@@ -33,6 +33,21 @@ const ChancesShape = styled.div<{ disabled: boolean }>(({ disabled }) => `
 
 const CardOptions = styled.div`
   display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  width: calc(100% - 32px);
+`;
+
+const OptionShape = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+`;
+
+const FlashcardWrapper = styled.div`
+  width: 100%;
 `;
 
 export interface ICardItem {
@@ -55,14 +70,22 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
 
   const { chances } = cardList[currentItem];
   return (
-    <>
+    <FlashcardWrapper>
       <Card>
         <ChancesWrapper>
           {Array(chances).fill(undefined).map((_, i) => <ChancesShape key={i} disabled={chancesRemaining <= i} />)}
         </ChancesWrapper>
       </Card>
-      <CardOptions></CardOptions>
-    </>
+      <CardOptions>
+        <OptionShape />
+        <div>
+          <OptionShape />
+
+          <OptionShape />
+        </div>
+        <OptionShape />
+      </CardOptions>
+    </FlashcardWrapper>
   );
 };
 
