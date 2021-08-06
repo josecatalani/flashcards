@@ -1,8 +1,7 @@
 import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
-import ClickCard from "../../Shared/ClickCard";
-import LawImg from "../../../public/static/law.png";
+import ColorCard from "../../Shared/ColorCard";
 
 const Wrapper = styled.div(
   ({ theme: { colors } }) => css`
@@ -22,41 +21,32 @@ const Subtitle = styled.p`
   margin-bottom: 30px;
 `;
 
-const mock: Array<{ title: string; subtitle: string; icon: StaticImageData }> =
-  [
-    {
-      icon: LawImg,
-      title: "Biologia",
-      subtitle: "Morbi sit amet ligula mauris. Sed non euismod nisi",
-    },
-    {
-      icon: LawImg,
-      title: "Tecnologia",
-      subtitle:
-        "Nunc velit metus, condimentum dignissim arcu at, rutrum rhoncus arcu.",
-    },
-    {
-      icon: LawImg,
-      title: "Marketing",
-      subtitle:
-        "Suspendisse interdum nunc quis odio condimentum, eu convallis eros luctus.",
-    },
-    {
-      icon: LawImg,
-      title: "Pedagogia",
-      subtitle: "Nullam a orci rutrum, pulvinar ante et, pretium risus.",
-    },
-    {
-      icon: LawImg,
-      title: "Direito",
-      subtitle: "In dictum orci sem, nec elementum neque consectetur a.",
-    },
-    {
-      icon: LawImg,
-      title: "Logística",
-      subtitle: "Maecenas posuere tincidunt finibus. Proin sed purus nunc.",
-    },
-  ];
+const mock: Array<{ title: string; color: string }> = [
+  {
+    title: "Biologia",
+    color: "#FF7878",
+  },
+  {
+    title: "Tecnologia",
+    color: "#C497FF",
+  },
+  {
+    title: "Marketing",
+    color: "#76C5FF",
+  },
+  {
+    title: "Pedagogia",
+    color: "#FFE900",
+  },
+  {
+    title: "Direito",
+    color: "#FC9700;",
+  },
+  {
+    title: "Logística",
+    color: "#4AFFB1",
+  },
+];
 
 const Theme: FC = () => {
   return (
@@ -71,8 +61,12 @@ const Theme: FC = () => {
           </Col>
         </Row>
         <Row>
-          {mock.map(({ title, subtitle, icon }, index) => (
-            <ClickCard title={title} subtitle={subtitle} link="" icon={icon} />
+          {mock.map(({ title, color }, index) => (
+            <ColorCard
+              title={title}
+              link=""
+              color={color}
+            />
           ))}
         </Row>
       </Container>
