@@ -3,8 +3,12 @@ import colors from "./colors";
 import fonts from "./fonts";
 import { media } from "styled-bootstrap-grid";
 
-const styledTheme: { colors: { [key: string]: { [key: string]: string } } } = {
+const styledTheme: {
+  colors: { [key: string]: { [key: string]: string } };
+  fonts: { [key: string]: string };
+} = {
   colors,
+  fonts,
 };
 
 export const reset = `
@@ -112,6 +116,7 @@ const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6 {
     font-family: ${fonts.title};
+    font-weight: 600;
     line-height: 1;
   }
 
@@ -137,6 +142,10 @@ const GlobalStyle = createGlobalStyle`
 
   h6 {
     font-size: 2.4rem;
+  }
+
+  p {
+    font-weight: 400;
   }
 
   ${media.desktop`

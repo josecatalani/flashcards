@@ -41,6 +41,10 @@ class MyDocument extends Document {
             name="viewport"
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
           />
+          <link
+            rel="shortcut icon"
+            href="https://d3awytnmmfk53d.cloudfront.net/landings/static/images/favicon/favicon.png?"
+          />
         </Head>
         <body>
           <Main />
