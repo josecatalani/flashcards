@@ -5,9 +5,6 @@ import { media } from "styled-bootstrap-grid";
 import ArrowImage from "../../../public/static/arrow.png";
 import Image from "next/image";
 
-const WaveAnimation = keyframes`
-`;
-
 const StyledHero = styled.div`
   padding-top: 40px;
 `;
@@ -111,8 +108,8 @@ const StyledCard = styled.div<{ isActive: boolean; isAnimating: boolean }>(
           opacity: 0;
         `}
 
-    width: 445px;
-    height: 445px;
+    width: 145px;
+    height: 145px;
 
     &::after,
     &::before {
@@ -139,17 +136,27 @@ const StyledCard = styled.div<{ isActive: boolean; isAnimating: boolean }>(
       right: -34px;
       top: 36px;
     }
+
+    ${media.desktop`
+      width: 445px;
+      height: 445px;
+    `}
   `
 );
 
 const StyledHeroCaroussel = styled.div`
   position: relative;
-  width: 445px;
-  height: 445px;
+  width: 145px;
+  height: 145px;
 
   ${StyledCard} {
     position: absolute;
   }
+
+  ${media.desktop`
+    width: 445px;
+    height: 445px;
+  `}
 `;
 
 const cards = [
