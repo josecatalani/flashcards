@@ -2,13 +2,44 @@ import React, { FC, useState, useEffect } from "react";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import styled from "styled-components";
 
+const CardWrapper = styled.div`
+  display: block;
+  width: 100%;
+  position: relative;
+  height: 362px;
+
+  &::before {
+    content: '';
+    width: calc(100% - 32px);
+    height: 100%;
+    background-color: #D2D2D2;
+    border-radius: 24px;
+    transform: scale(0.967);
+    position: absolute;
+    z-index: 2;
+    inset-inline-end: 4px;
+  }
+
+  &::after {
+    content: '';
+    width: calc(100% - 32px);
+    height: 100%;
+    background-color: #C6C6C6;
+    border-radius: 24px;
+    transform: scale(0.897);
+    position: absolute;
+    z-index: 1;
+    inset-inline-end: -37px;
+  }
+  `;
+
 const Card = styled.div`
   width: calc(100% - 32px);
   background-color: white;
   border-radius: 24px;
   padding: 24px;
-  height: 362px;
-  position: relative;
+  height: 100%;
+  position: absolute;
   z-index: 3;
 `;
 
@@ -33,6 +64,11 @@ const CardOptions = styled.div`
   width: calc(100% - 32px);
 `;
 
+const OptionsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
 const OptionShape = styled.button`
   width: 40px;
   height: 40px;
@@ -45,6 +81,13 @@ const FlashcardWrapper = styled.div`
   width: 100%;
 `;
 
+const DotsPlaceholder = styled.div`
+  width: 48px;
+  height: 24px;
+  border-radius: 8px;
+  margin: 0 47px;
+  background-color: #DBDBDB;
+`;
 export interface ICardItem {
   chances: number;
   question: string;
@@ -63,23 +106,23 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
     setChancesRemaining(cardList[currentItem].chances);
   }, [currentItem, cardList])
 
-  console.log(cardList.length, currentItem);
-
   const { chances } = cardList[currentItem];
   return (
     <FlashcardWrapper>
-      <Card>
-        <ChancesWrapper>
-          {Array(chances).fill(undefined).map((_, i) => <ChancesShape key={i} disabled={chancesRemaining <= i} />)}
-        </ChancesWrapper>
-      </Card>
+      <CardWrapper>
+        <Card>
+          <ChancesWrapper>
+            {Array(chances).fill(undefined).map((_, i) => <ChancesShape key={i} disabled={chancesRemaining <= i} />)}
+          </ChancesWrapper>
+        </Card>
+      </CardWrapper>
       <CardOptions>
         <OptionShape />
-        <div>
+        <OptionsWrapper>
           <OptionShape onClick={() => setCurrentItem(currentItem === 0 ? cardList.length - 1 : currentItem - 1)} />
-
+          <DotsPlaceholder />
           <OptionShape onClick={() => setCurrentItem(currentItem === cardList.length - 1 ? 0 : currentItem + 1)} />
-        </div>
+        </OptionsWrapper>
         <OptionShape />
       </CardOptions>
     </FlashcardWrapper>

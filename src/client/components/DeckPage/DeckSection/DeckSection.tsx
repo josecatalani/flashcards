@@ -9,6 +9,9 @@ const Wrapper = styled.div(({ theme: { colors } }) => `
 
 const PlaceholderButton = styled(Button)`
   width: 100%;
+  max-width: 380px;
+  display: block;
+  margin: 0 0 0 auto;
   margin-bottom: 40px;
 `;
 
