@@ -96,22 +96,18 @@ const TeacherName = styled.p`
 
 const cardList: ICardItem[] = [
   {
-    chances: 2,
     question: "Oi, tudo bem com você?",
     answer: "Tudo bem! Tchau.",
   },
   {
-    chances: 3,
     question: "Oi, tudo bem com você?",
     answer: "Tudo bem! Tchau.",
   },
   {
-    chances: 4,
     question: "Oi, tudo bem com você?",
     answer: "Tudo bem! Tchau.",
   },
   {
-    chances: 5,
     question: "Oi, tudo bem com você?",
     answer: "Tudo bem! Tchau.",
   },

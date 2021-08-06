@@ -63,7 +63,7 @@ ${buttonTheme === "black"
   `
 );
 
-const Button: FC<{ theme: string; className?: string; noHover?: boolean }> = ({
+const Button: FC<any> = ({
   children,
   theme,
   className,

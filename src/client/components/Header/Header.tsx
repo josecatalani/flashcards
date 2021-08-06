@@ -77,7 +77,6 @@ const Header: FC = () => {
   const [state, dispatch] = useContext(Context);
 
   const isBlackTheme = router?.query?.deck?.length === 3 || false;
-  console.log({ router });
   const isHome = router && router.route === "/home";
 
   const doLogin = () => {
