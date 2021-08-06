@@ -4,6 +4,8 @@ import { Col, Container, Row } from "styled-bootstrap-grid";
 import Link from "next/link";
 import Image from "next/image";
 import LogoImg from "../../public/static/logo.svg";
+import NotificationImg from "../../public/static/notification.png";
+import ProfileImg from "../../public/static/paulinha.png";
 import Button from "../Button/Button";
 
 const StyledHeader = styled.header`
@@ -15,6 +17,27 @@ const StyledMenuAligner = styled.div`
   align-items: center;
   justify-content: space-between;
 `;
+
+const StyledMenuRightAligner = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+`;
+
+const StyledNotification = styled.div`
+  border-radius: 25px;
+  padding: 8px;
+  background: #ffffff;
+  border: 1px solid #e5e6e7;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+`;
+
+const StyledProfileLink = styled.a``;
 
 const Header: FC = () => {
   const [isLogged, setIsLogged] = useState(false);
@@ -32,7 +55,9 @@ const Header: FC = () => {
               <Image src={LogoImg} />
               <Link href="/">
                 <a>
-                  <Button>Pagina Inicial</Button>
+                  <Button theme="clean" noHover>
+                    Pagina Inicial
+                  </Button>
                 </a>
               </Link>
               <div>Criar</div>
@@ -42,13 +67,19 @@ const Header: FC = () => {
             <input type="text" placeholder="Busque aqui" />
           </Col>
           <Col auto>
-            <div>Notificações</div>
-            <div>
-              <Link href="/perfil">
-                <a>Perfil</a>
-              </Link>
-            </div>
-            <div onClick={doLogin}>Sair</div>
+            <StyledMenuRightAligner>
+              <StyledNotification>
+                <Image src={NotificationImg} />
+              </StyledNotification>
+              <div>
+                <Link href="/perfil">
+                  <StyledProfileLink>
+                    <Image src={ProfileImg} />
+                  </StyledProfileLink>
+                </Link>
+              </div>
+              <div onClick={doLogin}>Sair</div>
+            </StyledMenuRightAligner>
           </Col>
         </Row>
       </Container>

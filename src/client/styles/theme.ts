@@ -148,6 +148,25 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
   }
 
+  input {
+    &[type=text] {
+      background: #FFFFFF;
+      border: 1px solid #CACDCE;
+      box-sizing: border-box;
+      border-radius: 8px;
+      padding: 10px 18px;
+      font-size: 1.6rem;
+      line-height: 2.4rem;
+      letter-spacing: -0.6px;
+      color: #636769;
+    }
+
+    &::placeholder {
+      color: #636769;
+      opacity: 1;
+    }
+  }
+
   ${media.desktop`
     body {
       line-height: 1.6;
