@@ -25,7 +25,9 @@ const StyledHeader = styled.header<{ isBlackTheme: boolean }>(
           background: #313435;
           color: white;
         `
-      : css``}
+      : css`
+          background: white;
+        `}
   `
 );
 
