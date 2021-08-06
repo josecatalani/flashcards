@@ -19,6 +19,7 @@ const CardWrapper = styled.div`
     position: absolute;
     z-index: 2;
     inset-inline-end: 4px;
+    top: 0;
   }
 
   &::after {
@@ -31,6 +32,7 @@ const CardWrapper = styled.div`
     position: absolute;
     z-index: 1;
     inset-inline-end: -37px;
+    top: 0;
   }
 `;
 
@@ -38,6 +40,10 @@ const CardInner = styled.div<{ active: boolean }>(({ active }) => `
     transition: transform 0.8s;
     transform-style: preserve-3d;
     transform: rotateY(${active ? 180 : 0}deg);
+    height: 100%;
+    width: 100%;
+    position: relative;
+    z-index: 5;
   `
 );
 
@@ -48,7 +54,8 @@ const Card = styled.div`
   padding: 24px;
   height: 100%;
   position: absolute;
-  z-index: 4;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
 `;
 
 const ChancesWrapper = styled.div`
@@ -148,7 +155,6 @@ const CardAnswer = styled.p`
 
 const CardBack = styled(Card)`
   transform: rotateY(180deg);
-  z-index: 3;
 `;
 
 export interface ICardItem {
@@ -189,10 +195,10 @@ const Flashcard: FC<IPropsFlashcard> = ({ cardList }) => {
               </CustomButton>
             </CardContent>
           </Card>
+          <CardBack>
+            OI
+          </CardBack>
         </CardInner>
-        <CardBack>
-          OI
-        </CardBack>
       </CardWrapper>
       <CardOptions>
         <OptionShape />
