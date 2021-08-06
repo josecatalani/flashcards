@@ -1,56 +1,28 @@
+import { useRouter } from "next/router";
 import React, { FC } from "react";
 import { Col, Container, Row } from "styled-bootstrap-grid";
+import { decks } from "../../data/cards";
 import CardDrawer from "./CardDrawer";
 import Jumbotron from "./Jumbotron";
 
-const cards = [
-  {
-    title: "Card Title A",
-    subtitle: "Sub Title A",
-    progress: 10,
-    link: "/a/b/c",
-  },
-  {
-    title: "Card Title B",
-    subtitle: "Sub Title B",
-    progress: 10,
-    link: "/a/b/c",
-  },
-  {
-    title: "Card Title C",
-    subtitle: "Sub Title C",
-    progress: 10,
-    link: "/a/b/c",
-  },
-  {
-    title: "Card Title D",
-    subtitle: "Sub Title D",
-    progress: 10,
-    link: "/a/b/c",
-  },
-  {
-    title: "Card Title E",
-    subtitle: "Sub Title E",
-    progress: 10,
-    link: "/a/b/c",
-  },
-  {
-    title: "Card Title F",
-    subtitle: "Sub Title F",
-    progress: 10,
-    link: "/a/b/c",
-  },
-];
-
 const ThemePage: FC = () => {
+  const router = useRouter();
+  const path = router!.query!.deck![0];
+
+  const title = decks[path].title
+  const subtitle = decks[path].subtitle;
+
   return (
     <>
-      <Jumbotron />
+      <Jumbotron title={title} subtitle={subtitle} />
       <Container>
         <Row>
           <Col md={9}>
-            <CardDrawer title="Decks da Paula" cards={cards} />
-            <CardDrawer title="Decks da Descomplica" cards={cards} />
+            <CardDrawer title="Decks da Paula" cards={decks[path].userDecks} />
+            <CardDrawer
+              title="Decks da Descomplica"
+              cards={decks[path].descomplicaDecks}
+            />
           </Col>
           <Col md={3}>bla</Col>
         </Row>

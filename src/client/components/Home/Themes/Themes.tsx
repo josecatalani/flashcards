@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import styled, { css } from "styled-components";
 import { Col, Container, Row } from "styled-bootstrap-grid";
 import ColorCard from "../../Shared/ColorCard";
+import { homeLoggedData } from "../../../data/loggedHome";
 
 const Wrapper = styled.div(
   ({ theme: { colors } }) => css`
@@ -21,33 +22,6 @@ const Subtitle = styled.p`
   margin-bottom: 30px;
 `;
 
-const mock: Array<{ title: string; color: string }> = [
-  {
-    title: "Biologia",
-    color: "#FF7878",
-  },
-  {
-    title: "Tecnologia",
-    color: "#C497FF",
-  },
-  {
-    title: "Marketing",
-    color: "#76C5FF",
-  },
-  {
-    title: "Pedagogia",
-    color: "#FFE900",
-  },
-  {
-    title: "Direito",
-    color: "#FC9700;",
-  },
-  {
-    title: "Logística",
-    color: "#4AFFB1",
-  },
-];
-
 const Theme: FC = () => {
   return (
     <Wrapper>
@@ -61,13 +35,17 @@ const Theme: FC = () => {
           </Col>
         </Row>
         <Row>
-          {mock.map(({ title, color }, index) => (
-            <ColorCard
-              title={title}
-              link=""
-              color={color}
-            />
-          ))}
+          {homeLoggedData.map(
+            ({ title, color, participants, flashcards, link }) => (
+              <ColorCard
+                title={title}
+                link={link}
+                color={color}
+                participants={participants}
+                flashcards={flashcards}
+              />
+            )
+          )}
         </Row>
       </Container>
     </Wrapper>

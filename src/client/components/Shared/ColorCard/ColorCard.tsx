@@ -59,9 +59,11 @@ const ColorCard: FC<{
   title: string;
   link: string;
   color: string;
-}> = ({ title, link, color }) => {
+  participants: number;
+  flashcards: number;
+}> = ({ title, link = "/", color, participants, flashcards }) => {
   return (
-    <Col sm={6} md={4} lg={3} key={`card_row_${title}_colored_${color}`}>
+    <Col sm={6} md={4} key={`card_row_${title}_colored_${color}`}>
       <StyledCard color={color}>
         <Link href={link}>
           <a>
@@ -71,13 +73,13 @@ const ColorCard: FC<{
                 <StyledIcon>
                   <StyledImage src={FlashcardIcon} />
                 </StyledIcon>
-                20 Flashcards
+                {flashcards} Flashcards
               </li>
               <li>
                 <StyledIcon>
                   <StyledImage src={FriendsIcon} />
                 </StyledIcon>
-                20 Participantes
+                {participants} Participantes
               </li>
             </ul>
           </a>
