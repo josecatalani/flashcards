@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import React from "react";
 import App from "../components/App";
@@ -13,11 +14,25 @@ const Decks = () => {
   const renderDeck = theme && deckId && deckFriendlyName;
 
   const renderThemePage = () => {
-    return <ThemePage />;
+    return (
+      <>
+        <Head>
+          <title>Temas | Descoflash</title>
+        </Head>
+        <ThemePage />
+      </>
+    );
   };
 
   const renderDeckPage = () => {
-    return <DeckPage />;
+    return (
+      <>
+        <Head>
+          <title>Fenótipo e Genótipo | Descoflash</title>
+        </Head>
+        <DeckPage />
+      </>
+    );
   };
 
   return (
