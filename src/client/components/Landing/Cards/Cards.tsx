@@ -78,9 +78,11 @@ const renderCard = ({
         <Image src={SchoolImg} />
         <StyledCardTitle>{title}</StyledCardTitle>
         <StyledCardSubTitle>{subtitle}</StyledCardSubTitle>
-        <StyledCardCTA theme="clean">
-          <Link href={link}>Ver tema</Link>
-        </StyledCardCTA>
+        <Link href={link}>
+          <a>
+            <StyledCardCTA theme="clean">Ver tema</StyledCardCTA>
+          </a>
+        </Link>
       </StyledCard>
     </Col>
   );
