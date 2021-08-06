@@ -47,19 +47,19 @@ const cardsData = [
     title: "Ciências Sociais",
     subtitle:
       "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "http://link.com",
+    link: "/ciencias-sociais",
   },
   {
     title: "Marketing Digital",
     subtitle:
       "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "http://link.com",
+    link: "/marketing-digital",
   },
   {
     title: "Psicologia",
     subtitle:
       "Lorem Ipsum has been the industry's standard dummy text since the 1500s",
-    link: "http://link.com",
+    link: "/psicologia",
   },
 ];
 
