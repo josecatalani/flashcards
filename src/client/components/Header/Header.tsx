@@ -9,7 +9,6 @@ import Button from "../Button/Button";
 import { Context } from "../../context/Store";
 import { useRouter } from "next/router";
 import Input from "../Input";
-import { route } from "next/dist/next-server/server/router";
 
 const LogoImg = "/static/logo.svg";
 const LogoWhiteImg = "/static/logo-white.png";
